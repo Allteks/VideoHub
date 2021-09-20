@@ -8,6 +8,7 @@ Uses Sharepoint to communicate between employee (Advisor) and client (Hub) softw
 Supports multiple Hubs shared with multiple organisations.
 Supports buttons added being used to select which organisation to connect to - buttons should simulate numeric key presses - 0, 1, 2, etc to select corresponding organisation.
 Raspberry Pi Pico or Arduino can be used to emulate keyboard presses for the buttons.
+Pi Pico CircuitPython code is included in repository - see code.py
 
 Built and tested with Visual Studio 2019.
 
