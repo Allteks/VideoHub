@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ScannerPreview = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -44,11 +45,21 @@
             this.stopHubDocumentCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scanHubDocumentCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chooseHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.btnReadyColour = new System.Windows.Forms.Button();
+            this.btnBusyColour = new System.Windows.Forms.Button();
+            this.btnKnockingColour = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numericUDOrg = new System.Windows.Forms.NumericUpDown();
             this.checkBoxSwapMainCamera = new System.Windows.Forms.CheckBox();
             this.numericDocumentCameraIndex = new System.Windows.Forms.NumericUpDown();
             this.btnSettingsSave = new System.Windows.Forms.Button();
@@ -74,19 +85,27 @@
             this.textBoxSharepointUsername = new System.Windows.Forms.TextBox();
             this.textBoxSharepointRelativeURL = new System.Windows.Forms.TextBox();
             this.textBoxSharepointURL = new System.Windows.Forms.TextBox();
+            this.SPStatus = new System.Windows.Forms.Label();
+            this.pictureBoxGreeting = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lstSPImages = new System.Windows.Forms.ListBox();
-            this.SPStatus = new System.Windows.Forms.Label();
             this.txtError = new System.Windows.Forms.TextBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.panelFTPImage = new System.Windows.Forms.Panel();
+            this.picFTPImage = new System.Windows.Forms.PictureBox();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ScannerPreview)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUDOrg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDocumentCameraIndex)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGreeting)).BeginInit();
+            this.panelFTPImage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFTPImage)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -102,15 +121,18 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem,
             this.controlHubToolStripMenuItem,
             this.configToolStripMenuItem,
+            this.debugToolStripMenuItem,
             this.closeImageToolStripMenuItem,
-            this.debugToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.chooseHubToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(264, 4);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1234, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(552, 24);
             this.menuStrip1.Stretch = false;
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
@@ -212,23 +234,23 @@
             // configToolStripMenuItem
             // 
             this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.documentCameraToolStripMenuItem,
+            this.checkUpdateToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.configToolStripMenuItem.Name = "configToolStripMenuItem";
             this.configToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.configToolStripMenuItem.Text = "Config";
             // 
-            // documentCameraToolStripMenuItem
+            // checkUpdateToolStripMenuItem
             // 
-            this.documentCameraToolStripMenuItem.Name = "documentCameraToolStripMenuItem";
-            this.documentCameraToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.documentCameraToolStripMenuItem.Text = "Document Camera 0";
-            this.documentCameraToolStripMenuItem.Click += new System.EventHandler(this.documentCameraToolStripMenuItem_Click);
+            this.checkUpdateToolStripMenuItem.Name = "checkUpdateToolStripMenuItem";
+            this.checkUpdateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.checkUpdateToolStripMenuItem.Text = "Check for Update";
+            this.checkUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkUpdatetToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -247,8 +269,32 @@
             this.debugToolStripMenuItem.Text = "Debug";
             this.debugToolStripMenuItem.Click += new System.EventHandler(this.debugToolStripMenuItem_Click);
             // 
+            // chooseHubToolStripMenuItem
+            // 
+            this.chooseHubToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem});
+            this.chooseHubToolStripMenuItem.Name = "chooseHubToolStripMenuItem";
+            this.chooseHubToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.chooseHubToolStripMenuItem.Text = "Choose Hub";
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
             // SettingsPanel
             // 
+            this.SettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SettingsPanel.Controls.Add(this.btnReadyColour);
+            this.SettingsPanel.Controls.Add(this.btnBusyColour);
+            this.SettingsPanel.Controls.Add(this.btnKnockingColour);
+            this.SettingsPanel.Controls.Add(this.label16);
+            this.SettingsPanel.Controls.Add(this.label15);
+            this.SettingsPanel.Controls.Add(this.label14);
+            this.SettingsPanel.Controls.Add(this.label13);
+            this.SettingsPanel.Controls.Add(this.numericUDOrg);
             this.SettingsPanel.Controls.Add(this.checkBoxSwapMainCamera);
             this.SettingsPanel.Controls.Add(this.numericDocumentCameraIndex);
             this.SettingsPanel.Controls.Add(this.btnSettingsSave);
@@ -276,8 +322,106 @@
             this.SettingsPanel.Controls.Add(this.textBoxSharepointURL);
             this.SettingsPanel.Location = new System.Drawing.Point(0, 27);
             this.SettingsPanel.Name = "SettingsPanel";
-            this.SettingsPanel.Size = new System.Drawing.Size(354, 362);
+            this.SettingsPanel.Size = new System.Drawing.Size(354, 435);
             this.SettingsPanel.TabIndex = 6;
+            // 
+            // btnReadyColour
+            // 
+            this.btnReadyColour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnReadyColour.Location = new System.Drawing.Point(161, 375);
+            this.btnReadyColour.Name = "btnReadyColour";
+            this.btnReadyColour.Size = new System.Drawing.Size(174, 22);
+            this.btnReadyColour.TabIndex = 35;
+            this.btnReadyColour.Text = "Pick Colour";
+            this.btnReadyColour.UseVisualStyleBackColor = false;
+            this.btnReadyColour.Click += new System.EventHandler(this.btnReadyColour_Click);
+            // 
+            // btnBusyColour
+            // 
+            this.btnBusyColour.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnBusyColour.Location = new System.Drawing.Point(161, 323);
+            this.btnBusyColour.Name = "btnBusyColour";
+            this.btnBusyColour.Size = new System.Drawing.Size(174, 22);
+            this.btnBusyColour.TabIndex = 34;
+            this.btnBusyColour.Text = "Pick Colour";
+            this.btnBusyColour.UseVisualStyleBackColor = false;
+            this.btnBusyColour.Click += new System.EventHandler(this.btnBusyColour_Click);
+            // 
+            // btnKnockingColour
+            // 
+            this.btnKnockingColour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnKnockingColour.Location = new System.Drawing.Point(161, 349);
+            this.btnKnockingColour.Name = "btnKnockingColour";
+            this.btnKnockingColour.Size = new System.Drawing.Size(174, 22);
+            this.btnKnockingColour.TabIndex = 33;
+            this.btnKnockingColour.Text = "Pick Colour";
+            this.btnKnockingColour.UseVisualStyleBackColor = false;
+            this.btnKnockingColour.Click += new System.EventHandler(this.btnKnockingColour_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(16, 380);
+            this.label16.Name = "label16";
+            this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label16.Size = new System.Drawing.Size(94, 13);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Hub Ready Colour";
+            this.toolTip1.SetToolTip(this.label16, "Minimum 7 characters");
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(16, 354);
+            this.label15.Name = "label15";
+            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label15.Size = new System.Drawing.Size(94, 13);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "Hub Calling Colour";
+            this.toolTip1.SetToolTip(this.label15, "Minimum 7 characters");
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 328);
+            this.label14.Name = "label14";
+            this.label14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label14.Size = new System.Drawing.Size(119, 13);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "Hub Unavailable Colour";
+            this.toolTip1.SetToolTip(this.label14, "Minimum 7 characters");
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(158, 11);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Organisation";
+            // 
+            // numericUDOrg
+            // 
+            this.numericUDOrg.Location = new System.Drawing.Point(290, 9);
+            this.numericUDOrg.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUDOrg.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUDOrg.Name = "numericUDOrg";
+            this.numericUDOrg.Size = new System.Drawing.Size(45, 20);
+            this.numericUDOrg.TabIndex = 27;
+            this.numericUDOrg.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUDOrg.ValueChanged += new System.EventHandler(this.numericUDOrg_ValueChanged);
             // 
             // checkBoxSwapMainCamera
             // 
@@ -302,7 +446,7 @@
             // 
             // btnSettingsSave
             // 
-            this.btnSettingsSave.Location = new System.Drawing.Point(197, 333);
+            this.btnSettingsSave.Location = new System.Drawing.Point(193, 407);
             this.btnSettingsSave.Name = "btnSettingsSave";
             this.btnSettingsSave.Size = new System.Drawing.Size(88, 19);
             this.btnSettingsSave.TabIndex = 24;
@@ -312,7 +456,7 @@
             // 
             // btnSettingsCancel
             // 
-            this.btnSettingsCancel.Location = new System.Drawing.Point(50, 333);
+            this.btnSettingsCancel.Location = new System.Drawing.Point(62, 407);
             this.btnSettingsCancel.Name = "btnSettingsCancel";
             this.btnSettingsCancel.Size = new System.Drawing.Size(88, 19);
             this.btnSettingsCancel.TabIndex = 23;
@@ -323,9 +467,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(135, 9);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(16, 10);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(45, 13);
+            this.label12.Size = new System.Drawing.Size(64, 16);
             this.label12.TabIndex = 22;
             this.label12.Text = "Settings";
             // 
@@ -401,6 +546,7 @@
             // 
             this.textBoxMeetingURL.Location = new System.Drawing.Point(161, 35);
             this.textBoxMeetingURL.Name = "textBoxMeetingURL";
+            this.textBoxMeetingURL.ReadOnly = true;
             this.textBoxMeetingURL.Size = new System.Drawing.Size(174, 20);
             this.textBoxMeetingURL.TabIndex = 12;
             // 
@@ -446,9 +592,9 @@
             this.label4.Location = new System.Drawing.Point(16, 302);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(107, 13);
+            this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Sharepoint Password";
+            this.label4.Text = "Network Password";
             this.toolTip1.SetToolTip(this.label4, "Minimum 7 characters");
             // 
             // label3
@@ -456,27 +602,27 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 276);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 13);
+            this.label3.Size = new System.Drawing.Size(98, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Sharepoint Username";
+            this.label3.Text = "Network Username";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 250);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Sharepoint Relative URL";
+            this.label2.Text = "Network Relative URL";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 224);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Sharepoint URL";
+            this.label1.Text = "Network URL";
             // 
             // textBoxSharepointUsername
             // 
@@ -501,6 +647,28 @@
             this.textBoxSharepointURL.Size = new System.Drawing.Size(174, 20);
             this.textBoxSharepointURL.TabIndex = 0;
             // 
+            // SPStatus
+            // 
+            this.SPStatus.AutoSize = true;
+            this.SPStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SPStatus.ForeColor = System.Drawing.Color.Red;
+            this.SPStatus.Location = new System.Drawing.Point(-4, 4);
+            this.SPStatus.Name = "SPStatus";
+            this.SPStatus.Size = new System.Drawing.Size(257, 20);
+            this.SPStatus.TabIndex = 8;
+            this.SPStatus.Text = "Network Offline - check credentials!";
+            this.SPStatus.Visible = false;
+            // 
+            // pictureBoxGreeting
+            // 
+            this.pictureBoxGreeting.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxGreeting.Location = new System.Drawing.Point(553, 360);
+            this.pictureBoxGreeting.Name = "pictureBoxGreeting";
+            this.pictureBoxGreeting.Size = new System.Drawing.Size(1728, 968);
+            this.pictureBoxGreeting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxGreeting.TabIndex = 29;
+            this.pictureBoxGreeting.TabStop = false;
+            // 
             // lstSPImages
             // 
             this.lstSPImages.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -515,50 +683,76 @@
             this.lstSPImages.DoubleClick += new System.EventHandler(this.lstSPImages_DoubleClick);
             this.lstSPImages.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lstSPImages_Click);
             // 
-            // SPStatus
-            // 
-            this.SPStatus.AutoSize = true;
-            this.SPStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SPStatus.ForeColor = System.Drawing.Color.Red;
-            this.SPStatus.Location = new System.Drawing.Point(380, 0);
-            this.SPStatus.Name = "SPStatus";
-            this.SPStatus.Size = new System.Drawing.Size(311, 20);
-            this.SPStatus.TabIndex = 8;
-            this.SPStatus.Text = "Sharepoint Offline - check your credentials!";
-            this.SPStatus.Visible = false;
-            // 
             // txtError
             // 
-            this.txtError.Location = new System.Drawing.Point(726, 4);
+            this.txtError.Location = new System.Drawing.Point(822, 18);
             this.txtError.Multiline = true;
             this.txtError.Name = "txtError";
             this.txtError.Size = new System.Drawing.Size(266, 246);
             this.txtError.TabIndex = 9;
             this.txtError.Visible = false;
             // 
+            // colorDialog1
+            // 
+            this.colorDialog1.AnyColor = true;
+            this.colorDialog1.Color = System.Drawing.Color.Orange;
+            this.colorDialog1.SolidColorOnly = true;
+            // 
+            // panelFTPImage
+            // 
+            this.panelFTPImage.AutoScroll = true;
+            this.panelFTPImage.Controls.Add(this.picFTPImage);
+            this.panelFTPImage.Location = new System.Drawing.Point(132, 530);
+            this.panelFTPImage.Name = "panelFTPImage";
+            this.panelFTPImage.Size = new System.Drawing.Size(112, 72);
+            this.panelFTPImage.TabIndex = 30;
+            // 
+            // picFTPImage
+            // 
+            this.picFTPImage.Location = new System.Drawing.Point(0, 0);
+            this.picFTPImage.Name = "picFTPImage";
+            this.picFTPImage.Size = new System.Drawing.Size(61, 53);
+            this.picFTPImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFTPImage.TabIndex = 0;
+            this.picFTPImage.TabStop = false;
+            this.picFTPImage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picFTPImage_Click);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 761);
-            this.Controls.Add(this.txtError);
+            this.ClientSize = new System.Drawing.Size(1234, 749);
+            this.Controls.Add(this.panelFTPImage);
             this.Controls.Add(this.SPStatus);
+            this.Controls.Add(this.txtError);
+            this.Controls.Add(this.pictureBoxGreeting);
             this.Controls.Add(this.lstSPImages);
             this.Controls.Add(this.SettingsPanel);
             this.Controls.Add(this.ScannerPreview);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MinimizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "VideoHub";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.ScannerPreview)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.SettingsPanel.ResumeLayout(false);
             this.SettingsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUDOrg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDocumentCameraIndex)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGreeting)).EndInit();
+            this.panelFTPImage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picFTPImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,7 +774,7 @@
         private System.Windows.Forms.ToolStripMenuItem scanHubDocumentCameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem documentCameraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetHubToolStripMenuItem;
         private System.Windows.Forms.Panel SettingsPanel;
         private System.Windows.Forms.Label label3;
@@ -614,6 +808,21 @@
         private System.Windows.Forms.Label SPStatus;
         private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
         private System.Windows.Forms.TextBox txtError;
+        private System.Windows.Forms.ToolStripMenuItem chooseHubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown numericUDOrg;
+        private System.Windows.Forms.PictureBox pictureBoxGreeting;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button btnReadyColour;
+        private System.Windows.Forms.Button btnBusyColour;
+        private System.Windows.Forms.Button btnKnockingColour;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel panelFTPImage;
+        private System.Windows.Forms.PictureBox picFTPImage;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
 
